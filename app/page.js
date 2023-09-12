@@ -9,11 +9,21 @@ const Page = () => {
   const [task, setTask] = useState("");
   const [description, setDescription] = useState("");
 
+  /*For making containers of the task we need to make a new state array*/
+
+  const [main, setMain] = useState([])
+
   // Define the submitHandler function with the event parameter (e)
   const submitHandler = (e) => {
     e.preventDefault();
-    // Add logic to handle form submission here
+    // console.log(task)
+    // console.log(description)
+    // Making again the both parameters empty
+    setTask('')
+    setDescription('')
   };
+
+  let renderTask = <h2>No Task Available</h2>
 
   return (
     <>
@@ -40,6 +50,11 @@ const Page = () => {
         {/* Button */}
         <button type="submit">Add Task</button>
       </form>
+
+      <hr />
+      <ul>
+        {renderTask}
+      </ul>
     </>
   );
 };
